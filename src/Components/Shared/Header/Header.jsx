@@ -1,18 +1,46 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo1 from "../../../assets/log.png";
 import "./Header.css";
+import { FcBusinessman } from "react-icons/fc";
+import { useContext } from "react";
+import { AuthContext } from "../../../Context/AuthProvider";
 
 const Header = () => {
+  const { user, signOutUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    signOutUser()
+      .then(() => {
+        // Sign-out successful.
+        navigate("/");
+      })
+      .catch((error) => {
+        // An error happened.
+        console.log(error);
+      });
+  };
   const navData = (
     <>
       <li>
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/products"}>Products</NavLink>
+        <NavLink to={"/products"}>Add Products</NavLink>
       </li>
       <li>
         <NavLink to={"/cart"}>My Cart</NavLink>
+      </li>
+      <li>
+        {user ? (
+          <>
+            <li>
+              <NavLink to={"/profile"}>Profile</NavLink>
+            </li>
+          </>
+        ) : (
+          ""
+        )}
       </li>
     </>
   );
@@ -59,65 +87,112 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle">
-              <div className="indicator">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+          {user ? (
+            <p className="truncate text-base font-bold text-black">
+              {user?.displayName}
+            </p>
+          ) : (
+            ""
+          )}
+          {user ? (
+            <>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle">
+                  <div className="indicator">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
+                    </svg>
+                    <span className="badge badge-sm indicator-item">8</span>
+                  </div>
+                </label>
+                <div
+                  tabIndex={0}
+                  className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                  />
-                </svg>
-                <span className="badge badge-sm indicator-item">8</span>
-              </div>
-            </label>
-            <div
-              tabIndex={0}
-              className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
-            >
-              <div className="card-body">
-                <span className="font-bold text-lg">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
-                <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View cart
-                  </button>
+                  <div className="card-body">
+                    <span className="font-bold text-lg">8 Items</span>
+                    <span className="text-info">Subtotal: $999</span>
+                    <div className="card-actions">
+                      <button className="btn btn-primary btn-block">
+                        View cart
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full ">
+                    <div className="lg:w-12 h-full rounded-full">
+                      <img
+                        className=" rounded-full h-12"
+                        src={user?.photoURL}
+                      />
+                    </div>
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <a onClick={()=>navigate('/profile')}>
+                      
+                      <button>Profile</button>
+                    </a>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <a onClick={handleLogOut}>Logout</a>
+                  </li>
+                </ul>
               </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            </>
+          ) : (
+            <>
+              <div className=" text-4xl">
+                <FcBusinessman />
+              </div>
+            </>
+          )}
+          {user ? (
+            <button
+              onClick={handleLogOut}
+              className="btn btn-outline border-none lg:text-xl hover:bg-emerald-700 capitalize lg:ms-2 "
             >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
+              SignOut
+            </button>
+          ) : (
+            <>
+              <div className="space-x-4 ml-5">
+              <Link
+                to={"/signin"}
+                className=" border-none lg:text-lg capitalize lg:ms-1  hover:bg-basicColor"
+              >
+                Log In
+              </Link>
+              <Link
+                to={"/register"}
+                className=" border-none lg:text-lg capitalize  hover:bg-basicColor"
+              >
+                Register
+              </Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

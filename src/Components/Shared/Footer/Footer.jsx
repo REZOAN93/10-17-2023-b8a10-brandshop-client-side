@@ -83,7 +83,7 @@ const Footer = () => {
           <a className="link link-hover">Cookie policy</a>
         </nav>
       </footer>
-      <footer className="footer px-10 py-4 border-t text-base-content border-base-300 border bg-red-300 flex items-center justify-center text-center">
+      <footer className="footer px-10 py-4 border-t text-base-content border-base-300 border bg-emerald-100 flex items-center justify-center text-center">
         <aside className="">
         <aside>
           <p>Copyright © 2023 - All right reserved by Rezoan Industries Ltd</p>

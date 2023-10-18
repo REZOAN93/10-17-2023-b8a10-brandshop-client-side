@@ -9,7 +9,7 @@ import Newsletter from "../../Newsletter/Newsletter";
 import Brands from "../../Brands/Brands";
 
 const Home = () => {
-  const brands = useLoaderData();
+  const userDAta = useLoaderData();
 
   return (
     <div>
@@ -85,12 +85,11 @@ const Home = () => {
         </div>
       </div>
       <Banner></Banner>
-      <div className=" max-w-7xl mx-auto border my-10">
-        {brands.map((na) => (
+      <div className=" max-w-7xl mx-auto my-10 grid grid-cols-5 gap-5">
+        {userDAta.map((na) => (
           <Brands key={na._id} data={na}></Brands>
         ))}
       </div>
-      <Brands></Brands>
       <Collection></Collection>
       <Newsletter></Newsletter>
       <Support></Support>

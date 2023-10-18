@@ -7,6 +7,11 @@ import Products from "../../Layout/Products/Products";
 import Cart from "../../Layout/Cart/Cart";
 import Brands from "../../Brands/Brands";
 
+import Register from "../../Auth/Register";
+import Profile from "../../Auth/Profile";
+import SignIn from "../../Auth/SignIn/SignIn";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -27,12 +32,20 @@ export const router = createBrowserRouter([
         element: <Products />,
       },
       {
-        path: "/products",
-        element: <Products />,
+        path: "/cart",
+        element: <PrivateRoute><Cart /></PrivateRoute>,
       },
       {
-        path: "/cart",
-        element: <Cart />,
+        path: "/signin",
+        element: <SignIn />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/profile",
+        element:<PrivateRoute><Profile /></PrivateRoute> ,
       },
     ],
   },

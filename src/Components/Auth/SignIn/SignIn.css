@@ -1,0 +1,28 @@
+.hr-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.hr {
+  width: 45%;
+  margin: 0;
+}
+
+.or-text {
+  font-weight: bold; /* Optional: Apply bold font weight to the "Or" text */
+  margin: 0 10px; /* Adjust the gap between the text and hr tags */
+}
+
+#loginContainer{
+  background-image: url(../../../assets//11.png);
+}
+#registerContainer{
+  background-image: url(../../../assets/13.jpg);
+}
+#profileContainer{
+  background-image: url(../../../assets/11.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
