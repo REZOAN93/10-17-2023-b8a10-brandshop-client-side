@@ -2,6 +2,10 @@
 
 Our company is focused on building websites based on renowned brands. Currently, we are in search of a MERN Stack developer to develop our upcoming brand-new website.
 
+:triangular_flag_on_post: Update in requirements
+  - Check requirements 5,6,11
+  - You can load brand names in home page from database / you can create fakedata & load from json. 
+
 ### 🧮 Website Theme:
 
 Here, we have provided you a list of `7 different types of categories to build your brand-based website`. You are required to select `a single category` from the following list to build your website. Your website cannot have more than `one category type`. For instance, if you choose `Technology and Electronics`, your website will have products related to `Technology and Electronics` only; :x: `you cannot add other products`:x: related to Fashion and Apparel, Food and Beverage, etc.
@@ -48,6 +52,7 @@ Here, we have provided you a list of `7 different types of categories to build y
 
    - Image
    - Name
+   - Brand Name
    - Type (If you choose the `Technology and Electronics` category ,then the types of products will be phone, computer, headphone, etc)
    - Price
    - Short description
@@ -60,6 +65,7 @@ Here, we have provided you a list of `7 different types of categories to build y
 
    - Image
    - Name
+   - Band Name
    - Type (If you choose `Technology and Electronics` category ,then the types of products will be phone, computer, headphone, etc)
    - Price
    - Rating
@@ -80,6 +86,7 @@ Here, we have provided you a list of `7 different types of categories to build y
 
     - Image
     - Name
+    - Brand Name
     - Type (If you choose the `Technology and Electronics` category ,then the types of products will be phone, computer, headphone, etc)
     - Price
     - Rating
@@ -139,6 +146,10 @@ On the Login page, display errors when:
 1. Your github client-side repository
 2. Your github server-side repository
 3. Your live website link
+
+### Deadline
+
+এই এসাইনমেন্ট মুলত তিন দিনের এসাইনমেন্ট। অর্থাৎ আগামী 20 October, রাত ১১.৫৯ এর মধ্যে তোমার এসাইনমেন্ট জমা দিলে তোমার সর্বোচ্চ মার্কস ৬০ মার্কস (৫০ এসাইনমেন্ট এর মার্কস + ১০ মার্কস বোনাস) । আর তুমি যদি এসাইনমেন্ট October 21 তারিখ সন্ধ্যা ৫.৫৯ এর মধ্যে সাবমিট করে তাহলে সর্বোচ্চ মার্কস ৫০। এর পরে সাবমিট করলে তোমার সর্বোচ্চ মার্কস ৩০।  
 
 ### :trophy: No Pain, No Gain:
 

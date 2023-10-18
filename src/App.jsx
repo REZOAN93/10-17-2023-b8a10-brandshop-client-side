@@ -4,7 +4,7 @@ import Header from "./Components/Shared/Header/Header";
 
 function App() {
   return (
-    <div>
+    <div className=" font-basicFont">
       <Header></Header>
       <Outlet></Outlet>
     </div>
