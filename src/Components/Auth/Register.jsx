@@ -36,15 +36,32 @@ const Register = () => {
       .then((userCredential) => {
         // Signed up
         const user = userCredential.user;
+        const userCreationTime = user.metadata.creationTime;
         // ...
-        if (user) {
-          Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: "Account is Created",
-            showConfirmButton: false,
-            timer: 1500,
+        const newUser = { email, name, photoURl, userCreationTime };
+        fetch("http://localhost:5000/user", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "Account is Created & Saved on DataBase",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           });
+        if (user) {
+          // Swal.fire({
+          //   position: "top-center",
+          //   icon: "success",
+          //   title: "Account is Created",
+          //   showConfirmButton: false,
+          //   timer: 1500,
+          // });
           handleUpdateUser(name, photoURl);
           navigate("/");
           form.reset();

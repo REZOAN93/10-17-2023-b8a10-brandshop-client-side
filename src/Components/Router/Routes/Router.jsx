@@ -13,6 +13,8 @@ import SignIn from "../../Auth/SignIn/SignIn";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
 import AddProducts from "../../AddProducts/AddProducts";
 import BrandProducts from "../../Brands/BrandProducts";
+import ProductDetails from "../../Brands/ProductDetails";
+import Users from "../../Auth/User";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +60,17 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />,
+      },
+      {
+        path: "/users",
+        element: <PrivateRoute><Users /></PrivateRoute>,
+        loader: () => fetch("http://localhost:5000/users"),
+      },
+      {
+        path: "/productdetails/:id",
+        element: <PrivateRoute><ProductDetails /></PrivateRoute>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/productdetails/${params.id}`),
       },
       {
         path: "/profile",

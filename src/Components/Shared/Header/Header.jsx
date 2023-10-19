@@ -34,9 +34,14 @@ const Header = () => {
       <li>
         {user ? (
           <>
+            <div className=" flex gap-4">
+            <li>
+              <NavLink to={"/users"}>Users</NavLink>
+            </li>
             <li>
               <NavLink to={"/profile"}>Profile</NavLink>
             </li>
+            </div>
           </>
         ) : (
           ""
@@ -82,7 +87,7 @@ const Header = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul id="sidebar" className="text-xl flex gap-10 font-bold px-1">
+          <ul id="sidebar" className="text-xl flex gap-4 font-bold px-1">
             {navData}
           </ul>
         </div>
@@ -147,8 +152,7 @@ const Header = () => {
                   className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   <li>
-                    <a onClick={()=>navigate('/profile')}>
-                      
+                    <a onClick={() => navigate("/profile")}>
                       <button>Profile</button>
                     </a>
                   </li>
@@ -178,18 +182,18 @@ const Header = () => {
           ) : (
             <>
               <div className="space-x-4 ml-5">
-              <Link
-                to={"/signin"}
-                className=" border-none lg:text-lg capitalize lg:ms-1  hover:bg-basicColor"
-              >
-                Log In
-              </Link>
-              <Link
-                to={"/register"}
-                className=" border-none lg:text-lg capitalize  hover:bg-basicColor"
-              >
-                Register
-              </Link>
+                <Link
+                  to={"/signin"}
+                  className=" border-none lg:text-lg capitalize lg:ms-1  hover:bg-basicColor"
+                >
+                  Log In
+                </Link>
+                <Link
+                  to={"/register"}
+                  className=" border-none lg:text-lg capitalize  hover:bg-basicColor"
+                >
+                  Register
+                </Link>
               </div>
             </>
           )}

@@ -33,11 +33,11 @@ const BrandProducts = () => {
 
   return (
     <div>
-      {/* <div>
-        <div className="carousel w-full">
+      <div>
+        <div className="carousel h-[500px] w-full">
           <div id="slide1" className="carousel-item relative w-full">
             <img
-              src="/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+              src="https://i.ibb.co/jz9QnNv/ian-dooley-TT-ROx-Wj9n-A-unsplash.jpg"
               className="w-full"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -51,7 +51,7 @@ const BrandProducts = () => {
           </div>
           <div id="slide2" className="carousel-item relative w-full">
             <img
-              src="/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+              src="https://i.ibb.co/zx0z5Y3/burgess-milner-OYYE4g-I5-ZQ-unsplash.jpg"
               className="w-full"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -65,7 +65,7 @@ const BrandProducts = () => {
           </div>
           <div id="slide3" className="carousel-item relative w-full">
             <img
-              src="/images/stock/photo-1414694762283-acccc27bca85.jpg"
+              src="https://i.ibb.co/Wt3nYQT/xiaolong-wong-pdx1-LH-TMJM-unsplash.jpg"
               className="w-full"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -79,7 +79,7 @@ const BrandProducts = () => {
           </div>
           <div id="slide4" className="carousel-item relative w-full">
             <img
-              src="/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
+              src="https://i.ibb.co/NWzKVZ1/brooke-cagle-z1-B9f48-F5dc-unsplash.jpg"
               className="w-full"
             />
             <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -92,16 +92,16 @@ const BrandProducts = () => {
             </div>
           </div>
         </div>
-      </div> */}
+      </div>
       <div>
-        <div>
-          <div className=" grid grid-cols-3 max-w-6xl mx-auto gap-4">
+        <div className="max-w-6xl mx-auto">
+        <h1 className=" text-3xl underline underline-offset-2 font-titleFont font-bold py-10">Product List:</h1>
+          <div className=" grid grid-cols-3   gap-4">
             {
                 brandData.length>0?<>{brandData.map((na) => (
                     <BrandDetails key={na._id} data={na}></BrandDetails>
                   ))}</>:<><p className=" w-full my-32 text-5xl text-red-700">The Product is comming Soon</p></>
             }
-          
           </div>
         </div>
        

@@ -1,6 +1,7 @@
 import { FiDollarSign, FiBookOpen } from "react-icons/fi";
+import { Link } from "react-router-dom";
 const BrandDetails = ({ data }) => {
-  const { brand, name, type, price, description, photoURL, rating } = data;
+  const {_id ,brand, name, type, price, description, photoURL,cover, rating } = data;
 
   return (
     <div>
@@ -44,13 +45,14 @@ const BrandDetails = ({ data }) => {
           </p>
         </div>
         <div className=" flex w-full gap-4">
-          <button
+          {/* <button
             //   onClick={() => handleEnrollCourse(course)}
             id="btnSelect"
             className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold "
           >
             Details
-          </button>
+          </button> */}
+          <Link to={`/productdetails/${_id}`} className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold ">Details</Link>
           <button
             //   onClick={() => handleEnrollCourse(course)}
             id="btnSelect"

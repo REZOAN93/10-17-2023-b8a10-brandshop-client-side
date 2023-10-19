@@ -7,7 +7,6 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../Context/AuthProvider";
 
-
 const SignIn = () => {
   const { signInWithEmail, signInWithGoogle, SignInWithGit } =
     useContext(AuthContext);
@@ -27,17 +26,29 @@ const SignIn = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        const userLastSign = user?.metadata?.lastSignInTime;
+        const emailInfo = user?.email;
+        const userInfoForDB = { emailInfo, userLastSign };
+        fetch(`http://localhost:5000/users`, {
+          method: "PUT",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userInfoForDB),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            Swal.fire({
+              position: "top-center",
+              icon: "success",
+              title: "You have successfully LogIn",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          });
+        // ...
         // ...
         if (user) {
-          Swal.fire({
-            position: "top-center",
-            icon: "success",
-            title: "You have successfully LogIn",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+          navigate(location?.state ? location.state : "/");
         }
-        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -96,7 +107,10 @@ const SignIn = () => {
       });
   };
   return (
-    <div id="loginContainer" className="card lg:shadow-2xl my-5 lg:w-4/12 mx-auto px-10 py-8">
+    <div
+      id="loginContainer"
+      className="card lg:shadow-2xl my-5 lg:w-4/12 mx-auto px-10 py-8"
+    >
       <h1 className="font-bold text-3xl text-center">Log In</h1>
       <form onSubmit={handleLogInUser} className=" space-y-3">
         <div className="form-control">
