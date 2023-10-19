@@ -4,33 +4,32 @@ import BrandDetails from "./BrandDetails";
 
 const BrandProducts = () => {
   const brandData = useLoaderData();
-  const { brand, name, price, description, photoURL, rating } = brandData;
- 
-//   const [data, setData] = useState(null);
-//   const [loading, setLoading] = useState(true);
- 
-//   console.log(brand)
- 
-//   useEffect(() => {
-//     const fetchData = async () => {
-//       try {
-//         const response = await fetch(`http://localhost:5000/brands`);
-//         const jsonData = await response.json();
-//         const newData= jsonData.find(na=>na.nickName==brand)
-//         setData(newData);
-//         setLoading(false);
-//       } catch (error) {
-//         console.error('Error fetching data:', error);
-//         setLoading(false);
-//       }
-//     };
 
-//     fetchData();
-//   }, [brand]);
+  //   const [data, setData] = useState(null);
+  //   const [loading, setLoading] = useState(true);
 
-//   if (loading) {
-//     return <div>Loading...</div>; // You can use loading spinners or other UI elements to indicate loading
-//   }
+  //   console.log(brand)
+
+  //   useEffect(() => {
+  //     const fetchData = async () => {
+  //       try {
+  //         const response = await fetch(`http://localhost:5000/brands`);
+  //         const jsonData = await response.json();
+  //         const newData= jsonData.find(na=>na.nickName==brand)
+  //         setData(newData);
+  //         setLoading(false);
+  //       } catch (error) {
+  //         console.error('Error fetching data:', error);
+  //         setLoading(false);
+  //       }
+  //     };
+
+  //     fetchData();
+  //   }, [brand]);
+
+  //   if (loading) {
+  //     return <div>Loading...</div>; // You can use loading spinners or other UI elements to indicate loading
+  //   }
 
   return (
     <div>
@@ -94,9 +93,19 @@ const BrandProducts = () => {
           </div>
         </div>
       </div> */}
-      {
-        brandData.map(na=><BrandDetails></BrandDetails>)
-      }
+      <div>
+        <div>
+          <div className=" grid grid-cols-3 max-w-6xl mx-auto gap-4">
+            {
+                brandData.length>0?<>{brandData.map((na) => (
+                    <BrandDetails key={na._id} data={na}></BrandDetails>
+                  ))}</>:<><p className=" w-full my-32 text-5xl text-red-700">The Product is comming Soon</p></>
+            }
+          
+          </div>
+        </div>
+       
+      </div>
     </div>
   );
 };
