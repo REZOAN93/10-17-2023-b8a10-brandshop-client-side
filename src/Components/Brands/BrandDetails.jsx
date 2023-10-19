@@ -1,7 +1,20 @@
 import { FiDollarSign, FiBookOpen } from "react-icons/fi";
 import { Link } from "react-router-dom";
 const BrandDetails = ({ data }) => {
-  const {_id ,brand, name, type, price, description, photoURL,cover, rating } = data;
+  const {
+    _id,
+    brand,
+    name,
+    type,
+    price,
+    description,
+    photoURL,
+    cover,
+    rating,
+  } = data;
+
+  const mappedRating = Math.min(Math.max(rating, 1), 10); // Ensure rating is between 1 and 10
+  const visualRating = Math.ceil(mappedRating / 2); // Map 1-10 scale to 1-5 scale
 
   return (
     <div>
@@ -21,12 +34,12 @@ const BrandDetails = ({ data }) => {
           </h1>
         </div>
         <div className="flex-grow">
-        <h1
-          style={{ color: "rgba(28, 27, 27, 0.60)" }}
-          className="text-justify text-sm font-normal h-14 "
-        >
-          {description}
-        </h1>
+          <h1
+            style={{ color: "rgba(28, 27, 27, 0.60)" }}
+            className="text-justify text-sm font-normal h-14 "
+          >
+            {description}
+          </h1>
         </div>
         <div
           style={{ color: "rgba(28, 27, 27, 0.60)" }}
@@ -38,16 +51,39 @@ const BrandDetails = ({ data }) => {
             </span>{" "}
             Price: {price}
           </p>
-          <p className="flex items-center gap-2">
+          {/* <p className="flex items-center gap-2">
             {" "}
             <span style={{ color: "rgba(28, 27, 27, 1)" }}></span> Rating:{" "}
             {rating}
-          </p>
+          </p> */}
+          <div className="rating flex items-center">
+            {Array.from({ length: 5 }, (_, index) => (
+              <input
+                key={index}
+                type="radio"
+                name="rating-2"
+                className={`mask mask-star-2 text-yellow-400 ${
+                  index < visualRating ? "bg-yellow-400" : "bg-gray-400"
+                }`}
+              />
+            ))}
+            {/* <span className="ml-2">{visualRating}</span> */}
+          </div>
         </div>
+
         <div className=" flex w-full gap-4">
-          
-          <Link to={`/productdetails/${_id}`} className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold ">Details</Link>
-          <Link to={`/productupdate/${_id}`} className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold ">Update</Link>
+          <Link
+            to={`/productdetails/${_id}`}
+            className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold "
+          >
+            Details
+          </Link>
+          <Link
+            to={`/productupdate/${_id}`}
+            className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold "
+          >
+            Update
+          </Link>
         </div>
       </div>
     </div>
