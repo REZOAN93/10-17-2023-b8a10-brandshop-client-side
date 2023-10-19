@@ -45,21 +45,9 @@ const BrandDetails = ({ data }) => {
           </p>
         </div>
         <div className=" flex w-full gap-4">
-          {/* <button
-            //   onClick={() => handleEnrollCourse(course)}
-            id="btnSelect"
-            className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold "
-          >
-            Details
-          </button> */}
+          
           <Link to={`/productdetails/${_id}`} className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold ">Details</Link>
-          <button
-            //   onClick={() => handleEnrollCourse(course)}
-            id="btnSelect"
-            className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold "
-          >
-            Update
-          </button>
+          <Link to={`/productupdate/${_id}`} className="btn btn-sm py-2 rounded-lg hover:bg-emerald-900 bg-emerald-800 text-white font-semibold ">Update</Link>
         </div>
       </div>
     </div>
