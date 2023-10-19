@@ -26,3 +26,11 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+#addProductscontainer{
+  background-image: url(../../../assets/11.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#productContainer{
+  background-image: url(../../../assets/13.jpg);
+}

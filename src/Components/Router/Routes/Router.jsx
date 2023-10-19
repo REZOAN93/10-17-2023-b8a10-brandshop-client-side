@@ -11,6 +11,8 @@ import Register from "../../Auth/Register";
 import Profile from "../../Auth/Profile";
 import SignIn from "../../Auth/SignIn/SignIn";
 import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import AddProducts from "../../AddProducts/AddProducts";
+import BrandProducts from "../../Brands/BrandProducts";
 
 export const router = createBrowserRouter([
   {
@@ -28,12 +30,26 @@ export const router = createBrowserRouter([
         element: <Banner />,
       },
       {
-        path: "/products",
-        element: <Products />,
+        path: "/brands/:id",
+        element: <BrandProducts />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/brands/${params.id}`),
+      },
+      {
+        path: "/addProducts",
+        element: (
+          <PrivateRoute>
+            <AddProducts />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/cart",
-        element: <PrivateRoute><Cart /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <Cart />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/signin",
@@ -45,7 +61,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element:<PrivateRoute><Profile /></PrivateRoute> ,
+        element: (
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        ),
       },
     ],
   },

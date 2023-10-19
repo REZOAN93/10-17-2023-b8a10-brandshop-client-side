@@ -26,7 +26,7 @@ const Header = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/products"}>Add Products</NavLink>
+        <NavLink to={"/addProducts"}>Add Products</NavLink>
       </li>
       <li>
         <NavLink to={"/cart"}>My Cart</NavLink>
