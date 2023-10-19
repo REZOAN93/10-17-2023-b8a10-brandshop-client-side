@@ -52,7 +52,7 @@ const ProductDetails = () => {
       });
   };
   return (
-    <div className=" grid gap-3 max-w-7xl mx-auto mb-10">
+    <div className=" grid gap-3 max-w-6xl mt-5 mx-auto mb-10">
       <div className="card lg:card-side lg:h-[550px] mt-1 bg-base-100 shadow-xl grid grid-cols-2">
         <figure className=" w-full ">
           <img className=" w-full h-full" src={photoURL} alt="Album" />

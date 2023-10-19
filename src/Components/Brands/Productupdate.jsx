@@ -58,45 +58,45 @@ const Productupdate = () => {
         }
       });
   };
-  const [selectedProduct, setSelectedProduct] = useState("");
-  const handleProductChange = (event) => {
-    setSelectedProduct(event.target.value);
-  };
-  const productTypes = [
-    { value: "Jacket", label: "Jacket" },
-    { value: "Pant", label: "Pant" },
-    { value: "Tshirt", label: "Tshirt" },
-    { value: "Trouser", label: "Trouser" },
-    { value: "Vest", label: "Vest" },
-    { value: "Shoes", label: "Shoes" },
-    { value: "Others", label: "Others" },
-  ];
-  const optionsArray = [
-    { value: "Lululemon", label: "Lululemon" },
-    { value: "Adidas", label: "Adidas" },
-    { value: "Arcteryx", label: "Arcteryx" },
-    { value: "CK", label: "CK" },
-    { value: "H&M", label: "H&M" },
-    { value: "LLBean", label: "LLBean" },
-    { value: "Mammut", label: "Mammut" },
-    { value: "Nike", label: "Nike" },
-    { value: "TNF", label: "TNF" },
-    { value: "Solomon", label: "Solomon" },
-    { value: "Tommy", label: "Tommy" },
-    { value: "USPA", label: "USPA" },
-    { value: "Others", label: "Others" },
-  ];
-  const [selectedBrand, setSelectedBrand] = useState("");
+  // const [selectedProduct, setSelectedProduct] = useState("");
+  // const handleProductChange = (event) => {
+  //   setSelectedProduct(event.target.value);
+  // };
+  // const productTypes = [
+  //   { value: "Jacket", label: "Jacket" },
+  //   { value: "Pant", label: "Pant" },
+  //   { value: "Tshirt", label: "Tshirt" },
+  //   { value: "Trouser", label: "Trouser" },
+  //   { value: "Vest", label: "Vest" },
+  //   { value: "Shoes", label: "Shoes" },
+  //   { value: "Others", label: "Others" },
+  // ];
+  // const optionsArray = [
+  //   { value: "Lululemon", label: "Lululemon" },
+  //   { value: "Adidas", label: "Adidas" },
+  //   { value: "Arcteryx", label: "Arcteryx" },
+  //   { value: "CK", label: "CK" },
+  //   { value: "H&M", label: "H&M" },
+  //   { value: "LLBean", label: "LLBean" },
+  //   { value: "Mammut", label: "Mammut" },
+  //   { value: "Nike", label: "Nike" },
+  //   { value: "TNF", label: "TNF" },
+  //   { value: "Solomon", label: "Solomon" },
+  //   { value: "Tommy", label: "Tommy" },
+  //   { value: "USPA", label: "USPA" },
+  //   { value: "Others", label: "Others" },
+  // ];
+  // const [selectedBrand, setSelectedBrand] = useState("");
 
-  const handleBrandChange = (event) => {
-    setSelectedBrand(event.target.value);
-  };
+  // const handleBrandChange = (event) => {
+  //   setSelectedBrand(event.target.value);
+  // };
 
-  const [selectedRating, setSelectedRating] = useState("");
+  // const [selectedRating, setSelectedRating] = useState("");
 
-  const handleRatingChange = (event) => {
-    setSelectedRating(event.target.value);
-  };
+  // const handleRatingChange = (event) => {
+  //   setSelectedRating(event.target.value);
+  // };
 
   return (
     <div>
@@ -144,6 +144,16 @@ const Productupdate = () => {
                       <span className="label-text">Brand Name</span>
                     </label>
                     <div className="join">
+                      <input
+                        type="text"
+                        name="brand"
+                        className="input input-bordered join-item w-full"
+                        placeholder="Enter Product Brand"
+                        defaultValue={brand}
+                        readOnly
+                      />
+                    </div>
+                    {/* <div className="join">
                       <select
                         name="brand"
                         id="brand"
@@ -160,13 +170,22 @@ const Productupdate = () => {
                           </option>
                         ))}
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Product Type</span>
                     </label>
                     <div className="join">
+                      <input
+                        type="text"
+                        name="type"
+                        className="input input-bordered join-item w-full"
+                        placeholder="Enter Product Type"
+                        defaultValue={type}
+                      />
+                    </div>
+                    {/* <div className="join">
                       <select
                         id="type"
                         name="type"
@@ -186,7 +205,7 @@ const Productupdate = () => {
                           </option>
                         ))}
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
                 <div className="grid grid-cols-2 gap-2 w-full">
@@ -209,6 +228,15 @@ const Productupdate = () => {
                       <span className="label-text">Rating</span>
                     </label>
                     <div className="join">
+                      <input
+                        type="number"
+                        name="rating"
+                        className="input input-bordered join-item w-full"
+                        placeholder="Enter Short Rating"
+                        defaultValue={rating}
+                      />
+                    </div>
+                    {/* <div className="join">
                       <select
                         id="rating"
                         name="rating"
@@ -225,7 +253,7 @@ const Productupdate = () => {
                           </option>
                         ))}
                       </select>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
 

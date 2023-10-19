@@ -57,8 +57,8 @@ const AddProducts = () => {
     { value: "Shoes", label: "Shoes" },
     { value: "Others", label: "Others" },
   ];
+  // { value: "Lululemon", label: "Lululemon" },
   const optionsArray = [
-    { value: "Lululemon", label: "Lululemon" },
     { value: "Adidas", label: "Adidas" },
     { value: "Arcteryx", label: "Arcteryx" },
     { value: "CK", label: "CK" },

@@ -96,11 +96,11 @@ const BrandProducts = () => {
       <div>
         <div className="max-w-6xl mx-auto">
         <h1 className=" text-3xl underline underline-offset-2 font-titleFont font-bold py-10">Product List:</h1>
-          <div className=" grid grid-cols-3   gap-4">
+          <div className=" grid grid-cols-3 mb-10  gap-4">
             {
                 brandData.length>0?<>{brandData.map((na) => (
                     <BrandDetails key={na._id} data={na}></BrandDetails>
-                  ))}</>:<><p className=" w-full my-32 text-5xl text-red-700">The Product is comming Soon</p></>
+                  ))}</>:<><p className=" w-full rounded-lg text-5xl text-red-700 bg-red-300 p-20">The Product is comming Soon</p></>
             }
           </div>
         </div>
