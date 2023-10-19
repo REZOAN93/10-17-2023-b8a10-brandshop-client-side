@@ -44,11 +44,8 @@ const SignIn = () => {
               timer: 1500,
             });
           });
-        // ...
-        // ...
-        if (user) {
-          navigate(location?.state ? location.state : "/");
-        }
+        
+        navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {
         const errorMessage = error.message;

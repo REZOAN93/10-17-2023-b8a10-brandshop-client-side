@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
-  const { createUserWithEmail, updateUser } = useContext(AuthContext);
+  const { createUserWithEmail, updateUser,signOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [showPassword, setshowPassword] = useState(false);
@@ -49,7 +49,7 @@ const Register = () => {
             Swal.fire({
               position: "top-center",
               icon: "success",
-              title: "Account is Created & Saved on DataBase",
+              title: "Account is Created & Please Log In",
               showConfirmButton: false,
               timer: 1500,
             });
@@ -63,8 +63,9 @@ const Register = () => {
           //   timer: 1500,
           // });
           handleUpdateUser(name, photoURl);
-          navigate("/");
+          navigate("/signin");
           form.reset();
+          signOutUser()
         }
       })
       .catch((error) => {

@@ -52,6 +52,7 @@ export const router = createBrowserRouter([
             <Cart />
           </PrivateRoute>
         ),
+        loader:()=>fetch('http://localhost:5000/userProducts')
       },
       {
         path: "/signin",

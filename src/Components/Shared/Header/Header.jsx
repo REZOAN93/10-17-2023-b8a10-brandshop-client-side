@@ -34,7 +34,7 @@ const Header = () => {
       <li>
         {user ? (
           <>
-            <div className=" flex gap-4">
+            <div className=" flex gap-7">
             <li>
               <NavLink to={"/users"}>Users</NavLink>
             </li>
@@ -87,7 +87,7 @@ const Header = () => {
           </div>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul id="sidebar" className="text-xl flex gap-4 font-bold px-1">
+          <ul id="sidebar" className="text-xl flex gap-7 font-bold px-1">
             {navData}
           </ul>
         </div>
