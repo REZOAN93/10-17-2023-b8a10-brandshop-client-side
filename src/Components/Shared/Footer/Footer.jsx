@@ -6,7 +6,7 @@ const Footer = () => {
         <form>
           <div className=" flex items-center gap-2 text-black">
             <img className=" h-24" src={img1} alt="" />
-            <a className=" text-base lg:text-5xl text-emerald-100 font-titleFont font-extrabold">
+            <a className=" text-base lg:text-5xl text-emerald-800 font-titleFont font-extrabold">
               REZOAN
             </a>
           </div>
