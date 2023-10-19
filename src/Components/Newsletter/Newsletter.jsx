@@ -3,7 +3,7 @@ import imgNews from "../../assets/home.jpg";
 
 const Newsletter = () => {
   return (
-    <div className="mx-auto border max-w-7xl">
+    <div className="mx-auto max-w-7xl">
       <div>
         <img src={imgNews} alt="" />
       </div>

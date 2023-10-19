@@ -6,9 +6,9 @@ const Footer = () => {
         <form>
           <div className=" flex items-center gap-2 text-black">
             <img className=" h-24" src={img1} alt="" />
-            <header className=" font-extrabold text-5xl font-titleFont ">
+            <a className=" text-base lg:text-5xl text-emerald-100 font-titleFont font-extrabold">
               REZOAN
-            </header>
+            </a>
           </div>
           <div>
             <p className=" text-xl">rezoanshawonweb@gmail.com <br /> 5633 Playa Grande Blvd <br /> Los Angeles CA 90260 USA</p>

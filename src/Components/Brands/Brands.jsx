@@ -5,7 +5,7 @@ const Brands = ({ data }) => {
   const navigate=useNavigate()
 
   return (
-    <div onClick={()=>navigate(`/brands/${nickName}`)} className=" relative card shadow-xl flex-col  hover:bg-emerald-100 cursor-pointer">
+    <div onClick={()=>navigate(`/brands/${nickName}`)} className=" bg-white relative card shadow-xl flex-col  hover:bg-emerald-100 cursor-pointer">
       <figure className=" h-36 w-full px-2">
         <img src={log} alt="Shoes" className="rounded-xl h-28 w-9/12" />
       </figure>
