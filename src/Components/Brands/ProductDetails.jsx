@@ -33,11 +33,14 @@ const ProductDetails = () => {
       rating,
       emailUser,
     };
-    fetch("http://localhost:5000/userProducts", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(userProduct),
-    })
+    fetch(
+      "https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/userProducts",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(userProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         Swal.fire({
@@ -53,11 +56,11 @@ const ProductDetails = () => {
   };
   return (
     <div className=" grid gap-3 max-w-6xl mt-5 mx-auto mb-10">
-      <div className="card lg:card-side lg:h-[550px] mt-1 bg-base-100 shadow-xl grid grid-cols-2">
-        <figure className=" w-full ">
+      <div className="card  lg:card-side lg:h-[550px] mt-1 bg-base-100 shadow-xl grid grid-cols-1 px-2 lg:px-0 lg:grid-cols-2">
+        <figure className=" w-full pb-5 lg:pb-0 ">
           <img className=" w-full h-full" src={photoURL} alt="Album" />
         </figure>
-        <div className="card-body bg-emerald-200 rounded-r-2xl ">
+        <div className="card-body bg-emerald-200 rounded-2xl lg:rounded-r-2xl ">
           <h2 className=" text-3xl font-bold">{name}</h2>
           <div className=" border-t-2 border-b-2 py-3 my-4">
             <h2 className=" text-xl font-bold">Brand: {brand}</h2>
@@ -76,37 +79,37 @@ const ProductDetails = () => {
           </div>
           <div className=" space-y-2">
             <p className="text-lg font-bold">Size:</p>
-            <div className="flex gap-2">
-              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-lg">
+            <div className="flex gap-1 lg:gap-2">
+              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-sm lg:text-lg">
                 XS
               </div>
-              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-lg">
+              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-sm lg:text-lg">
                 S
               </div>
-              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-lg">
+              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-sm lg:text-lg">
                 M
               </div>
-              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-lg">
+              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-sm lg:text-lg">
                 L
               </div>
-              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-lg">
+              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-sm lg:text-lg">
                 XL
               </div>
-              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-lg">
+              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-sm lg:text-lg">
                 XXL
               </div>
-              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-lg">
+              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-sm lg:text-lg">
                 3XL
               </div>
-              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-lg">
+              <div className="w-12 h-12 bg-emerald-700 text-white  rounded-lg flex justify-center items-center text-sm lg:text-lg">
                 4XL
               </div>
             </div>
           </div>
-          <div className=" grid gap-3 grid-cols-3 justify-between mt-5">
+          <div className=" grid grid-cols-2 gap-3 lg:grid-cols-3 justify-between mt-5">
             <button
               onClick={handleAddToCart}
-              className="btn col-span-2 bg-emerald-800 border-none hover:bg-emerald-900 text-white "
+              className="btn lg:col-span-2 bg-emerald-800 border-none hover:bg-emerald-900 text-white "
             >
               Add To Cart
             </button>

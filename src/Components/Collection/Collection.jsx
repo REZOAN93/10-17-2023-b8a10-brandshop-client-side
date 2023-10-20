@@ -5,7 +5,7 @@ import imgc3 from "../../assets/home-4.jpg";
 
 const Collection = () => {
   return (
-    <div className=" max-w-7xl mx-auto grid grid-cols-3 gap-7 my-10 justify-between">
+    <div className=" max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-7 my-10 justify-between">
       <div>
         <img src={imgc1} alt="" />
         <div className=" text-center mt-3  space-y-2">

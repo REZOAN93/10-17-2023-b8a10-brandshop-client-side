@@ -6,7 +6,8 @@ import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../../Context/AuthProvider";
 
 const Register = () => {
-  const { createUserWithEmail, updateUser,signOutUser } = useContext(AuthContext);
+  const { createUserWithEmail, updateUser, signOutUser } =
+    useContext(AuthContext);
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const [showPassword, setshowPassword] = useState(false);
@@ -39,11 +40,14 @@ const Register = () => {
         const userCreationTime = user.metadata.creationTime;
         // ...
         const newUser = { email, name, photoURl, userCreationTime };
-        fetch("http://localhost:5000/user", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(newUser),
-        })
+        fetch(
+          "https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/user",
+          {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(newUser),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             Swal.fire({
@@ -65,7 +69,7 @@ const Register = () => {
           handleUpdateUser(name, photoURl);
           navigate("/signin");
           form.reset();
-          signOutUser()
+          signOutUser();
         }
       })
       .catch((error) => {
@@ -91,105 +95,105 @@ const Register = () => {
     };
   };
   return (
-   <div className="registerfullpage">
-     <div
-      id="registerContainer"
-      className="card lg:shadow-2xl bg-base-100 my-5 lg:w-6/12 mx-auto px-10 py-8"
-    >
-      <h1 className="font-bold text-3xl mb-5 text-center">
-        Create New Account
-      </h1>
-      <form onSubmit={handleCreateUser} className=" space-y-3">
-        <div className="grid lg:grid-cols-3 w-full gap-3">
+    <div className="registerfullpage">
+      <div
+        id="registerContainer"
+        className="card lg:shadow-2xl bg-base-100 my-5 lg:w-6/12 mx-auto px-10 py-8"
+      >
+        <h1 className="font-bold text-3xl mb-5 text-center">
+          Create New Account
+        </h1>
+        <form onSubmit={handleCreateUser} className=" space-y-3">
+          <div className="grid lg:grid-cols-3 w-full gap-3">
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Name</span>
+              </label>
+              <input
+                type="name"
+                placeholder="Enter name"
+                name="name"
+                className="input input-bordered"
+                required
+              />
+            </div>
+            <div className="form-control lg:col-span-2">
+              <label className="label">
+                <span className="label-text">Email</span>
+              </label>
+              <input
+                type="email"
+                placeholder="Enter email"
+                name="email"
+                className="input input-bordered"
+                required
+              />
+            </div>
+          </div>
           <div className="form-control">
             <label className="label">
-              <span className="label-text">Name</span>
+              <span className="label-text">Photo URL</span>
             </label>
             <input
-              type="name"
-              placeholder="Enter name"
-              name="name"
+              type="url"
+              name="photoURL"
+              placeholder="Enter the Photo URL"
               className="input input-bordered"
-              required
             />
           </div>
-          <div className="form-control lg:col-span-2">
+          <div className="form-control relative">
             <label className="label">
-              <span className="label-text">Email</span>
+              <span className="label-text">Password</span>
             </label>
             <input
-              type="email"
-              placeholder="Enter email"
-              name="email"
+              type={showPassword ? "text" : "password"}
+              placeholder="password"
+              name="password"
               className="input input-bordered"
               required
             />
-          </div>
-        </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Photo URL</span>
-          </label>
-          <input
-            type="url"
-            name="photoURL"
-            placeholder="Enter the Photo URL"
-            className="input input-bordered"
-          />
-        </div>
-        <div className="form-control relative">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="password"
-            name="password"
-            className="input input-bordered"
-            required
-          />
-          <span
-            onClick={() => setshowPassword(!showPassword)}
-            className=" cursor-pointer absolute right-5 top-12 text-2xl"
-          >
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
-          </span>
-          <label className="label">
-            <p>
-              <input type="checkbox" name="remember me" id="" />
-              <span className="ms-3 font-bold">
-                I agree with{" "}
-                <span className="underline underline-offset-2">
-                  Terms & Conditions
+            <span
+              onClick={() => setshowPassword(!showPassword)}
+              className=" cursor-pointer absolute right-5 top-12 text-2xl"
+            >
+              {showPassword ? <FaEyeSlash /> : <FaEye />}
+            </span>
+            <label className="label">
+              <p>
+                <input type="checkbox" name="remember me" id="" />
+                <span className="ms-3 font-bold">
+                  I agree with{" "}
+                  <span className="underline underline-offset-2">
+                    Terms & Conditions
+                  </span>
                 </span>
-              </span>
-            </p>
-          </label>
+              </p>
+            </label>
+          </div>
+          <div className="form-control">
+            <button className="btn capitalize bg-emerald-800 hover:bg-green-900 text-xl text-white">
+              Register
+            </button>
+            {error ? (
+              <>
+                <p className=" text-red-600 text-sm text-center">{error}</p>
+              </>
+            ) : (
+              ""
+            )}
+          </div>
+        </form>
+        <div className=" flex items-center gap-4 mt-5 mb-2">
+          <hr className="w-full" />
         </div>
-        <div className="form-control">
-          <button className="btn capitalize bg-emerald-800 hover:bg-green-900 text-xl text-white">
-            Register
-          </button>
-          {error ? (
-            <>
-              <p className=" text-red-600 text-sm text-center">{error}</p>
-            </>
-          ) : (
-            ""
-          )}
+        <div className="flex justify-center">
+          <Link to={"/signin"}>
+            Already have an Account?
+            <span className="font-bold text-basicColor ms-2">Log In</span>
+          </Link>
         </div>
-      </form>
-      <div className=" flex items-center gap-4 mt-5 mb-2">
-        <hr className="w-full" />
-      </div>
-      <div className="flex justify-center">
-        <Link to={"/signin"}>
-          Already have an Account?
-          <span className="font-bold text-basicColor ms-2">Log In</span>
-        </Link>
       </div>
     </div>
-   </div>
   );
 };
 

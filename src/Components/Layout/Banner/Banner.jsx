@@ -12,10 +12,10 @@ const Banner = () => {
           loop
         ></video>
       </div>
-      <div className=" absolute top-40 w-full mx-auto text-center space-y-5">
+      <div className=" absolute top-2 lg:top-40 w-full mx-auto text-center space-y-2 lg:space-y-5">
         <h1 className=" text-white text-xl">THE CULT CLASSICS SALE</h1>
-        <p className=" text-8xl font-bold text-white">15% OFF*</p>
-        <button className=" bg-white px-10 py-4 rounded-lg btn">SHOP NOW</button>
+        <p className=" text-sm lg:text-8xl font-bold text-white">15% OFF*</p>
+        <button className=" bg-white lg:px-10 lg:py-4 rounded-lg btn-sm lg:btn">SHOP NOW</button>
         <p className=" hover:bg-red-700 text-white w-fit mx-auto p-2 rounded-lg">*Use code CLASSICS at checkout through 10/4. Exclusions apply.</p>
       </div>
     </div>

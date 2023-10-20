@@ -29,11 +29,14 @@ const SignIn = () => {
         const userLastSign = user?.metadata?.lastSignInTime;
         const emailInfo = user?.email;
         const userInfoForDB = { emailInfo, userLastSign };
-        fetch(`http://localhost:5000/users`, {
-          method: "PUT",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(userInfoForDB),
-        })
+        fetch(
+          `https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/users`,
+          {
+            method: "PUT",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(userInfoForDB),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             Swal.fire({
@@ -44,7 +47,7 @@ const SignIn = () => {
               timer: 1500,
             });
           });
-        
+
         navigate(location?.state ? location.state : "/");
       })
       .catch((error) => {

@@ -13,7 +13,7 @@ const Cart = () => {
     setThisUserData(userDAta);
   }, [allData, user]);
 
-//   const [RestData, setRestData] = useState(thisUserData);
+  //   const [RestData, setRestData] = useState(thisUserData);
 
   const handleDeleteData = (id) => {
     Swal.fire({
@@ -26,16 +26,19 @@ const Cart = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/UserProductsData/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/UserProductsData/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
-                const remaining = thisUserData.filter((na) => na._id !== id);
-                console.log(remaining,'REMAINFIN')
-                // setRestData(remaining);
-                setThisUserData(remaining)
+              const remaining = thisUserData.filter((na) => na._id !== id);
+              console.log(remaining, "REMAINFIN");
+              // setRestData(remaining);
+              setThisUserData(remaining);
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
             }
           });
@@ -50,21 +53,21 @@ const Cart = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>Brand Name</th>
+              <th className=" hidden md:block lg:block">Brand Name</th>
               <th>Product Name</th>
               <th>Price</th>
-              <th>Product Type</th>
+              <th className="hidden md:block lg:block">Product Type</th>
               <th>Action</th>
-            </tr> 
+            </tr>
           </thead>
           <tbody>
             {thisUserData.map((na) => (
               <>
                 <tr>
-                  <th>{na.brand}</th>
+                  <th className="hidden md:block lg:block">{na.brand}</th>
                   <td>{na.name}</td>
                   <td>${na.price}.00</td>
-                  <td>{na.type}</td>
+                  <td className="hidden md:block lg:block">{na.type}</td>
                   <td
                     onClick={() => handleDeleteData(na._id)}
                     className=" cursor-pointer"

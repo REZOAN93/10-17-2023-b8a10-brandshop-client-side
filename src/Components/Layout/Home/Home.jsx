@@ -13,10 +13,10 @@ const Home = () => {
 
   return (
     <div>
-      <div className=" border-t-2 border-b-2 mb-10">
+      <div className=" border-t-2 border-b-2 mb-10 hidden lg:block">
         <div className="w-full grid grid-cols-3 max-w-7xl mx-auto">
           <div className=" border-r-2 py-2">
-            <div className="dropdown dropdown-hover">
+            <div className="dropdown dropdown-hover ">
               <label
                 tabIndex={0}
                 className=" m-1 flex items-center gap-2 text-xl"
@@ -54,29 +54,28 @@ const Home = () => {
                 </li>
               </ul>
             </div>
-            <div></div>
           </div>
           <div className="col-span-2 grid grid-cols-4 py-2 gap-2">
             <button className=" bg-basicColor py-2 text-red-800">
               Summar Sale Discount
             </button>
             <Marquee className=" col-span-3" pauseOnHover={true} speed={100}>
-              <Link className="mr-8" to={"/"}>
+              <Link className="lg:mr-8" to={"/"}>
                 Get 20% off on all Adidas products. Hurry, limited time
                 offer!...
               </Link>
-              <Link className="mr-8" to={"/"}>
+              <Link className="lg:mr-8" to={"/"}>
                 Exclusive 15% discount on Nike items. Shop now and save big!....
               </Link>
-              <Link className="mr-8" to={"/"}>
+              <Link className="lg:mr-8" to={"/"}>
                 Flash sale! Enjoy a 25% discount on all Lululemon products.
                 Limited stock!....
               </Link>
-              <Link className="mr-8" to={"/"}>
+              <Link className="lg:mr-8" to={"/"}>
                 Weekend special: 18% off on Eddie Bauer merchandise. Grab your
                 favorites today!....
               </Link>
-              <Link className="mr-8" to={"/"}>
+              <Link className="lg:mr-8" to={"/"}>
                 Super savings alert! 30% discount on all H&M items. Don't miss
                 out!...
               </Link>
@@ -85,7 +84,7 @@ const Home = () => {
         </div>
       </div>
       <Banner></Banner>
-      <div className=" max-w-7xl mx-auto my-10 grid grid-cols-5 gap-5">
+      <div className=" max-w-7xl mx-auto my-10 grid grid-cols-2 px-2 lg:px-0 lg:grid-cols-5 gap-5">
         {userDAta.map((na) => (
           <Brands key={na._id} data={na}></Brands>
         ))}

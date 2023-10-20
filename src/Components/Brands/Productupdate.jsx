@@ -37,11 +37,14 @@ const Productupdate = () => {
       rating,
     };
     console.log(singleProduct);
-    fetch(`http://localhost:5000/update/${_id}`, {
-      method: "PUT",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(singleProduct),
-    })
+    fetch(
+      `https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/update/${_id}`,
+      {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(singleProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -104,13 +107,13 @@ const Productupdate = () => {
         <div className=" max-w-6xl mx-auto py-5 space-y-3">
           <div id="productContainer" className=" rounded-lg py-8">
             <div className=" px-10 pb-2 space-y-4">
-              <h1 className="font-titleFont text-3xl text-center font-extrabold saturate-200">
+              <h1 className="font-titleFont text-xl lg:text-3xl text-center font-extrabold saturate-200">
                 Product Update Page
               </h1>
             </div>
             <div className="px-10">
               <form onSubmit={handleUpdateProduct} className=" space-y-3">
-                <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full">
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Name</span>
@@ -208,7 +211,7 @@ const Productupdate = () => {
                     </div> */}
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full">
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Short description</span>
@@ -273,7 +276,7 @@ const Productupdate = () => {
                 </div>
                 <div className="form-control">
                   <input
-                    className=" bg-emerald-700 w-full text-white text-2xl cursor-pointer hover:bg-emerald-800 mt-5 p-2 rounded-lg font-titleFont font-bold text-bgBtn"
+                    className=" bg-emerald-700 w-full text-white lg:text-2xl cursor-pointer hover:bg-emerald-800 mt-5 p-2 rounded-lg font-titleFont font-bold text-bgBtn"
                     type="submit"
                     value="Update Product"
                   />
@@ -282,7 +285,7 @@ const Productupdate = () => {
             </div>
           </div>
           <Link
-            className="font-titleFont flex gap-3 justify-end drop-shadow-md font-bold text-2xl"
+            className="font-titleFont flex gap-3 justify-end drop-shadow-md font-bold lg:text-2xl"
             to={"/"}
           >
             {" "}

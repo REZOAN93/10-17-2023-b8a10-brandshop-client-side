@@ -23,11 +23,14 @@ const AddProducts = () => {
       photoURL,
       rating,
     };
-    fetch("http://localhost:5000/addProducts", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(singleProduct),
-    })
+    fetch(
+      "https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/addProducts",
+      {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(singleProduct),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
@@ -96,7 +99,7 @@ const AddProducts = () => {
             </div>
             <div className="px-10">
               <form onSubmit={handleAddProduct} className=" space-y-3">
-                <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full">
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Name</span>
@@ -173,7 +176,7 @@ const AddProducts = () => {
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-2 gap-2 w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 w-full">
                   <div className="form-control">
                     <label className="label">
                       <span className="label-text">Short description</span>
@@ -236,7 +239,7 @@ const AddProducts = () => {
             </div>
           </div>
           <Link
-            className="font-titleFont flex gap-3 justify-end drop-shadow-md font-bold text-2xl"
+            className="font-titleFont flex gap-3 justify-end drop-shadow-md font-bold lg:text-2xl"
             to={"/"}
           >
             {" "}

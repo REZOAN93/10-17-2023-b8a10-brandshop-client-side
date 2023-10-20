@@ -26,7 +26,10 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/brands"),
+        loader: () =>
+          fetch(
+            "https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/brands"
+          ),
       },
       {
         path: "/",
@@ -36,7 +39,9 @@ export const router = createBrowserRouter([
         path: "/brands/:id",
         element: <BrandProducts />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/brands/${params.id}`),
+          fetch(
+            `https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/brands/${params.id}`
+          ),
       },
       {
         path: "/addProducts",
@@ -53,7 +58,10 @@ export const router = createBrowserRouter([
             <Cart />
           </PrivateRoute>
         ),
-        loader:()=>fetch('http://localhost:5000/userProducts')
+        loader: () =>
+          fetch(
+            "https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/userProducts"
+          ),
       },
       {
         path: "/signin",
@@ -65,19 +73,39 @@ export const router = createBrowserRouter([
       },
       {
         path: "/users",
-        element: <PrivateRoute><Users /></PrivateRoute>,
-        loader: () => fetch("http://localhost:5000/users"),
+        element: (
+          <PrivateRoute>
+            <Users />
+          </PrivateRoute>
+        ),
+        loader: () =>
+          fetch(
+            "https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/users"
+          ),
       },
       {
         path: "/productdetails/:id",
-        element: <PrivateRoute><ProductDetails /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <ProductDetails />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/productdetails/${params.id}`),
+          fetch(
+            `https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/productdetails/${params.id}`
+          ),
       },
       {
         path: "/productupdate/:id",
-        element: <PrivateRoute><Productupdate/></PrivateRoute>,
-        loader:({params})=>fetch(`http://localhost:5000/productdetails/${params.id}`)
+        element: (
+          <PrivateRoute>
+            <Productupdate />
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(
+            `https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/productdetails/${params.id}`
+          ),
       },
       {
         path: "/profile",

@@ -95,8 +95,8 @@ const Header = () => {
               {navData}
             </ul>
           </div>
-          <div className="flex gap-2 items-center">
-            <img className=" h-10 lg:h-14" src={logo1} alt="" />
+          <div className="flex gap-2 items-center ">
+            <img className=" hidden md:block lg:block h-10 lg:h-14" src={logo1} alt="" />
             <a className=" text-base text-emerald-800 lg:text-3xl font-titleFont font-extrabold">
               REZOAN
             </a>
@@ -109,7 +109,7 @@ const Header = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <p className="truncate text-base font-bold text-black">
+            <p className="truncate text-base font-bold text-black hidden lg:block md:block">
               {user?.displayName}
             </p>
           ) : (
@@ -180,7 +180,7 @@ const Header = () => {
             </>
           ) : (
             <>
-              <div className=" text-4xl">
+              <div className=" lg:text-4xl hidden lg:block md:block">
                 <FcBusinessman />
               </div>
             </>
@@ -194,7 +194,7 @@ const Header = () => {
             </button>
           ) : (
             <>
-              <div className="space-x-4 ml-5">
+              <div className="lg:space-x-4 space-x-2 flex lg:ml-5">
                 <Link
                   to={"/signin"}
                   className=" border-none lg:text-lg capitalize lg:ms-1  hover:bg-basicColor"
@@ -208,7 +208,7 @@ const Header = () => {
                   Register
                 </Link>
               </div>
-              <div className=" ml-4">
+              <div className="ml-4 lg:ml-2">
                 <label className="swap swap-rotate">
                   {/* this hidden checkbox controls the state */}
                   <input type="checkbox" onChange={handleToggle} />

@@ -11,7 +11,7 @@ const Brands = ({ data }) => {
       </figure>
       <div className=" p-5 flex-grow">
         <h2 className=" text-base font-bold">{nameBuyer}</h2>
-        <p>{origin}</p>
+        <p className="hidden lg:block md:block">{origin}</p>
       </div>
       <div className="absolute hidden hover:block top-20 left-16"> <p>Details Products</p></div>
       <div>

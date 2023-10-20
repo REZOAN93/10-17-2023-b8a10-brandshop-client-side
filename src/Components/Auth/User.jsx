@@ -16,9 +16,12 @@ const Users = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/users/${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/users/${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.deletedCount > 0) {
@@ -37,10 +40,10 @@ const Users = () => {
           {/* head */}
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Creation Date</th>
-              <th>LastLogin Date</th>
+              <th className="hidden md:block lg:block">Name</th>
+              <th >Email</th>
+              <th className="hidden md:block lg:block">Creation Date</th>
+              <th className="hidden md:block lg:block">LastLogin Date</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -48,10 +51,10 @@ const Users = () => {
             {restUsers.map((na) => (
               <>
                 <tr>
-                  <th>{na.name}</th>
+                  <th className="hidden md:block lg:block">{na.name}</th>
                   <td>{na.email}</td>
-                  <td>{na.userCreationTime}</td>
-                  <td>{na.LastLogInTime}</td>
+                  <td className="hidden md:block lg:block">{na.userCreationTime}</td>
+                  <td className="hidden md:block lg:block">{na.LastLogInTime}</td>
                   <td
                     onClick={() => handleDeleteUser(na._id)}
                     className=" cursor-pointer"

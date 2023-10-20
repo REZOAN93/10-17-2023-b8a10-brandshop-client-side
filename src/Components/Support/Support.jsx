@@ -4,7 +4,7 @@ import imglogo from '../../assets/logo.png'
 
 const Support = () => {
   return (
-    <div className=" grid grid-cols-4 py-10 gap-10 max-w-7xl mx-auto">
+    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 lg:px-0 py-10 gap-10 max-w-7xl mx-auto">
       <div className=" flex items-center py-10 justify-start gap-5">
         <div className=" text-7xl">
           <MdOutlineLocalShipping />

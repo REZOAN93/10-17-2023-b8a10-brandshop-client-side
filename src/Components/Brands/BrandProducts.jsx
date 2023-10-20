@@ -13,7 +13,7 @@ const BrandProducts = () => {
   //   useEffect(() => {
   //     const fetchData = async () => {
   //       try {
-  //         const response = await fetch(`http://localhost:5000/brands`);
+  //         const response = await fetch(`https://10-17-2023-b8-a10-brand-shop-server-side-rezoan-93-hljb1lf39.vercel.app/brands`);
   //         const jsonData = await response.json();
   //         const newData= jsonData.find(na=>na.nickName==brand)
   //         setData(newData);
@@ -34,7 +34,7 @@ const BrandProducts = () => {
   return (
     <div>
       <div>
-        <div className="carousel h-[500px] w-full">
+        <div className="carousel lg:h-[500px] w-full">
           <div id="slide1" className="carousel-item relative w-full">
             <img
               src="https://i.ibb.co/jz9QnNv/ian-dooley-TT-ROx-Wj9n-A-unsplash.jpg"
@@ -95,16 +95,25 @@ const BrandProducts = () => {
       </div>
       <div>
         <div className="max-w-6xl mx-auto">
-        <h1 className=" text-3xl underline underline-offset-2 font-titleFont font-bold py-10">Product List:</h1>
-          <div className=" grid grid-cols-3 mb-10  gap-4">
-            {
-                brandData.length>0?<>{brandData.map((na) => (
-                    <BrandDetails key={na._id} data={na}></BrandDetails>
-                  ))}</>:<><p className=" w-full rounded-lg text-5xl text-red-700 bg-red-300 p-20">The Product is comming Soon</p></>
-            }
+          <h1 className=" lg:text-3xl text-xl px-2 lg:px-0 underline underline-offset-2 font-titleFont font-bold lg:py-10">
+            Product List:
+          </h1>
+          <div className=" grid grid-cols-1 px-2 lg:px-0 lg:grid-cols-3 mb-10  gap-4">
+            {brandData.length > 0 ? (
+              <>
+                {brandData.map((na) => (
+                  <BrandDetails key={na._id} data={na}></BrandDetails>
+                ))}
+              </>
+            ) : (
+              <>
+                <p className=" w-full rounded-lg text-5xl text-red-700 bg-red-300 p-20">
+                  The Product is comming Soon
+                </p>
+              </>
+            )}
           </div>
         </div>
-       
       </div>
     </div>
   );

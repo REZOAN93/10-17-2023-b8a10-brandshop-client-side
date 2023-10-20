@@ -7,9 +7,9 @@ const Newsletter = () => {
       <div>
         <img src={imgNews} alt="" />
       </div>
-      <div className=" grid grid-cols-2 text-white">
-        <div className=" bg-gray-800 p-20 space-y-3">
-          <h1 className=" text-5xl">Sign up to our newsletter</h1>
+      <div className=" grid grid-cols-1 lg:grid-cols-2 text-white">
+        <div className=" bg-gray-800 p-4 lg:p-20 space-y-3">
+          <h1 className=" text-xl lg:text-5xl">Sign up to our newsletter</h1>
           <div className="join">
             <div>
               <div>
@@ -33,8 +33,8 @@ const Newsletter = () => {
             </div>
           </div>
         </div>
-        <div className=" bg-black text-white p-20 space-y-3">
-            <h1 className=" text-5xl">Summer Collection Lookbook</h1>
+        <div className=" bg-black text-white p-4 lg:p-20 space-y-3">
+            <h1 className=" text-xl lg:text-5xl">Summer Collection Lookbook</h1>
             <Link className=" bg-white btn text-black">DISCOVER LOOKBOK</Link>
         </div>
       </div>
