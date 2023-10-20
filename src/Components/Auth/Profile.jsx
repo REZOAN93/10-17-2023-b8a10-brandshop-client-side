@@ -45,7 +45,7 @@ const Profile = () => {
 
 
   return (
-    <div id="profileContainer" className="w-10/12 border rounded-lg mx-auto grid grid-cols-1 gap-20 lg:gap-2 lg:grid-cols-2 my-10 p-10">
+    <div id="profileContainer" className="lg:w-10/12 mx-2 p-2 border rounded-lg lg:mx-auto grid grid-cols-1 lg:gap-2 lg:grid-cols-2 lg:my-10 lg:p-10">
       <div className="w-full">
         {user?.photoURL ? (
           <img className=" w-96 lg:h-96 rounded-full" src={user.photoURL} alt="" />
