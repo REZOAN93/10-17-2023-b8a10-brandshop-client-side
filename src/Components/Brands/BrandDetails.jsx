@@ -1,5 +1,9 @@
 import { FiDollarSign, FiBookOpen } from "react-icons/fi";
 import { Link } from "react-router-dom";
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+
 const BrandDetails = ({ data }) => {
   const {
     _id,
@@ -16,8 +20,29 @@ const BrandDetails = ({ data }) => {
   const mappedRating = Math.min(Math.max(rating, 1), 10); // Ensure rating is between 1 and 10
   const visualRating = Math.ceil(mappedRating / 2); // Map 1-10 scale to 1-5 scale
 
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <div>
+       <div>
+      <div className="carousel lg:h-[500px] w-full">
+        <Slider {...sliderSettings}>
+          {brandData.map((data) => (
+            <div key={data._id}>
+              <img src={data.cover} className="w-full" alt={data.name} />
+            </div>
+          ))}
+        </Slider>
+      </div>
+      {/* Rest of your component */}
+    </div>
       <div className="w-full bg-white p-5 space-y-2 flex-col shadow-lg rounded-lg">
         <div className=" h-72 w-full flex justify-center">
           <img className=" h-72 w-full" src={photoURL} alt="" />
