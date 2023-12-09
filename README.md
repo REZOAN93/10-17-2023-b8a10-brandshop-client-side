@@ -2,7 +2,12 @@
 
 ## Click here for the Live Link: [https://b8a10-brandshop.web.app](https://b8a10-brandshop.web.app)
 
----
+----------------------------------------------------------------
+
+- Technologies Used Front End: React, Vite, Tailwind CSS, Firebase
+- Technologies Used Back End: Node.js, Express, MongoDB.
+
+----------------------------------------------------------------
 
 ## : Feature of this website:
 
